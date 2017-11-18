@@ -4,8 +4,8 @@ from urllib import request
 from bs4 import BeautifulSoup
 
 
-def result_print():
-    name = parse.quote_plus('ブタ', encoding='utf-8')
+def scientific_name(wiki_name):
+    name = parse.quote_plus(wiki_name, encoding='utf-8')
     html = request.urlopen('https://ja.wikipedia.org/wiki/' + name).read()
     soup = BeautifulSoup(html, 'html.parser')
     trs = soup.find('table', class_='borderless').find_all('tr')
@@ -15,5 +15,3 @@ def result_print():
     result_list.append(last_word)
     return result_list
 
-
-print(result_print())
