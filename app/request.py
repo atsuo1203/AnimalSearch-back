@@ -15,3 +15,12 @@ def scientific_name(wiki_name):
     result_list.append(last_word)
     return result_list
 
+
+# 改行させる
+def make_line(li):
+    result_word = ''
+    for l in li:
+        result_word += l
+        result_word += '\n'
+    return result_word
+

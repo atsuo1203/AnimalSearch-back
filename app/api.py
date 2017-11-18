@@ -3,6 +3,7 @@ import json
 from flask import request, redirect, url_for, make_response, jsonify
 
 from app import app
+from app.request import make_line
 from app.request import scientific_name
 
 
@@ -10,7 +11,7 @@ from app.request import scientific_name
 def show_wiki_name():
     data = json.loads(request.data.decode('utf-8'))
     wiki_name = data['name']
-    text = scientific_name(wiki_name)
-    response = {'name': text}
+    word_list = scientific_name(wiki_name)
+    response = {'name': make_line(word_list)}
     return make_response(jsonify(response))
 
