@@ -21,16 +21,16 @@ def scientific_name(wiki_name):
 
     trs = table.find_all('tr')
     words = [td.find_all('td')[2].find('a') for td in trs]
-    last_word = trs[-1].find('b').string
     result_list = [a.string for a in words if a is not None]
+    last_word = trs[-1].find('b').string
     if last_word is None:
-        return result_list
+        return _make_line(result_list)
     result_list.append(last_word)
-    return result_list
+    return _make_line(result_list)
 
 
 # 改行させる
-def make_line(li):
+def _make_line(li):
     result_word = ''
     for l in li:
         result_word += l
