@@ -23,6 +23,8 @@ def scientific_name(wiki_name):
     words = [td.find_all('td')[2].find('a') for td in trs]
     last_word = trs[-1].find('b').string
     result_list = [a.string for a in words if a is not None]
+    if last_word is None:
+        return result_list
     result_list.append(last_word)
     return result_list
 
