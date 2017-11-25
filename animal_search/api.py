@@ -3,8 +3,8 @@ import json
 from flask import request, make_response, jsonify
 from flask_cors import cross_origin
 
-from app import app
-from app.request import scientific_name
+from animal_search import app
+from animal_search.request import scientific_name
 
 
 @app.route('/', methods=['GET', 'POST'])
